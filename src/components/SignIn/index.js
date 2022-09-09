@@ -99,24 +99,32 @@ function SignIn({ checkLog }) {
           ),
         }}
       ></TextField>
-      <div>
-        <FormControlLabel
-          control={
-            <Checkbox
-              defaultChecked
-              sx={{
-                m: 1,
-                color: green["A700"],
-                "&.Mui-checked": {
-                  color: green["A700"],
-                },
-              }}
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <div>
+            <FormControlLabel
+              control={
+                <Checkbox
+                  defaultChecked
+                  sx={{
+                    m: 1,
+                    color: green["A700"],
+                    "&.Mui-checked": {
+                      color: green["A700"],
+                    },
+                  }}
+                />
+              }
+              label="Remember me"
             />
-          }
-          label="Remember me"
-        />
-        <b style={{ position: "relative", left: "20%" }}>Forgot password?</b>
-      </div>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div style={{textAlign:"right",margin:15}}>
+            <b>Forgot password?</b>
+          </div>
+        </Grid>
+      </Grid>
 
       <Button
         variant="contained"
