@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import SignIn from './components/SignIn';
 import './App.css';
+import { signinSelector, } from './redux/selectors';
+import { useSelector } from 'react-redux';
+import Catalog from './components/Catalog'
 
 function App() {
+  const signinCheck = useSelector(signinSelector)
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {signinCheck || <SignIn checkLog={signinCheck}></SignIn>}
+      {signinCheck && <Catalog></Catalog>}
     </div>
   );
 }
